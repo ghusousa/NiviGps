@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.nivilive.gps"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary true
+
+        buildConfigField "String", "API_URL", "\"http://63.142.252.27/api/\""
+    }
+
+    signingConfigs {
+        debug {
+
+        }
+
+        release {
+
+        }
+    }
+
+    buildTypes {
+        debug {
+
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'com.android.support:appcompat-v7:27.1.1'
+
+    implementation "com.android.support:appcompat-v7:$support"
+    implementation "com.android.support:design:$support"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:2.1.9"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.2.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
+    // Rx-bindings
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding-kotlin:2.1.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:2.1.0'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:3.9.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.9.1"
+    // DI
+    implementation "com.google.dagger:dagger:2.14.1"
+    kapt "com.google.dagger:dagger-compiler:2.14.1"
+    // Dagger-Android
+    implementation 'com.google.dagger:dagger-android:2.14.1'
+    kapt 'com.google.dagger:dagger-android-processor:2.14.1'
+    implementation 'com.google.dagger:dagger-android-support:2.14.1'
+    // MVP
+    implementation "com.arello-mobile:moxy:1.5.3"
+    kapt "com.arello-mobile:moxy-compiler:1.5.3"
+    implementation "com.arello-mobile:moxy-app-compat:1.5.3"
+    // Navigator
+    implementation "ru.terrakok.cicerone:cicerone:3.0.0"
+    // Maps
+    implementation "com.google.android.gms:play-services-base:$googlePlayServicesVersion"
+    implementation "com.google.android.gms:play-services-location:$googlePlayServicesVersion"
+    implementation "com.google.android.gms:play-services-maps:$googlePlayServicesVersion"
+
+    implementation "com.jakewharton.timber:timber:4.6.0"
+
+    implementation("com.github.hotchemi:permissionsdispatcher:3.1.0") {
+        // if you don't use android.app.Fragment you can exclude support for them
+        exclude module: "support-v13"
+    }
+    kapt "com.github.hotchemi:permissionsdispatcher-processor:3.1.0"
+    implementation 'com.hannesdorfmann:adapterdelegates3:3.0.1'
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.5'
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.0.0"
+    implementation "android.arch.persistence.room:rxjava2:1.0.0"
+
+    implementation "com.bignerdranch.android:recyclerview-multiselect:0.2"
+}

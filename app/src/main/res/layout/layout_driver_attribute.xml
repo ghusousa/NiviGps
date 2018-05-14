@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:paddingEnd="@dimen/standard_padding"
+                android:paddingLeft="24dp"
+                android:paddingRight="@dimen/standard_padding"
+                android:paddingStart="24dp"
+                android:paddingTop="8dp">
+
+	<TextView
+		android:id="@+id/text_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentStart="true"
+		android:minWidth="150dp"
+		tools:text="Name:"/>
+
+	<TextView
+		android:id="@+id/text_value"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/standard_padding"
+		android:layout_marginStart="@dimen/standard_padding"
+		android:layout_toEndOf="@id/text_label"
+		android:layout_toRightOf="@id/text_label"
+		android:minWidth="150dp"
+		tools:text="John Smith"/>
+
+</RelativeLayout>

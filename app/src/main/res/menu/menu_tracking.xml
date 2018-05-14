@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<item
+		android:id="@+id/action_driver"
+		android:icon="@drawable/ic_person"
+		android:title="@string/tracking_menu_driver_info"
+		app:showAsAction="ifRoom" />
+
+	<item
+		android:id="@+id/action_notifications"
+		android:icon="@drawable/ic_notifications"
+		android:title="@string/tracking_menu_notifications"
+		app:showAsAction="ifRoom" />
+
+	<!--<item-->
+		<!--android:id="@+id/action_settings"-->
+		<!--android:icon="@drawable/ic_settings"-->
+		<!--android:title="@string/tracking_menu_settings"-->
+		<!--app:showAsAction="ifRoom" />-->
+
+	<item
+		android:id="@+id/action_logout"
+		android:icon="@drawable/ic_power"
+		android:title="@string/tracking_menu_power"
+		app:showAsAction="ifRoom" />
+
+</menu>
