@@ -50,6 +50,7 @@
                 android:id="@+id/edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:inputType="textEmailAddress" />
 
         </android.support.design.widget.TextInputLayout>
@@ -63,6 +64,7 @@
                 android:id="@+id/edit_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:inputType="textPassword"/>
 
         </android.support.design.widget.TextInputLayout>
@@ -80,7 +82,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_border"
+            android:background="@drawable/border"
 
             android:text="@string/sign_in_login_button"
             android:textColor="@color/white"/>

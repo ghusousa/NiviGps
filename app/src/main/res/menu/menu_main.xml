@@ -10,11 +10,21 @@
 			android:icon="@drawable/ic_map"
 			android:checked="true"
 			android:title="@string/main_menu_tracking" />
+        <item
+            android:id="@+id/action_device"
+            android:icon="@drawable/ic_person"
+            android:title="@string/main_menu_device" />
 
 		<item
 			android:id="@+id/action_driver"
 			android:icon="@drawable/ic_person"
 			android:title="@string/main_menu_driver_info" />
+
+		<item
+			android:id="@+id/action_alert"
+
+            android:icon="@drawable/ic_notifications"
+			android:title="@string/main_menu_alert" />
 
 		<item
 			android:id="@+id/action_notifications"
@@ -25,18 +35,14 @@
 
 	<group
 		android:id="@+id/menu_settings">
-		<item android:title="Settings">
+		<item android:title="@string/settings">
 			<menu>
 
-				<item
-					android:id="@+id/action_pickup"
 
-					android:icon="@drawable/ic_pickup_black_24dp"
-					android:title="@string/main_menu_pick_up" />
 				<item
-					android:id="@+id/action_notifications_settings"
+					android:id="@+id/action_alerts_settings"
 					android:icon="@drawable/ic_notifications"
-					android:title="@string/main_menu_notification_setting" />
+					android:title="@string/main_menu_alerts_setting" />
 				<item
 					android:id="@+id/action_user_profile"
 					android:icon="@drawable/ic_profile_setting_black_24dp"
@@ -76,7 +82,7 @@
 		<item
 			android:id="@+id/action_logout"
 			android:icon="@drawable/ic_power"
-			android:title="@string/main_menu_power"
+			android:title="@string/main_menu_signout"
 			android:checkable="false" />
 
 
