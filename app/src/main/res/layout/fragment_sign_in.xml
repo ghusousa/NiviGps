@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="@drawable/main_background"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
 
-	android:padding="16dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20sp"
 
         android:orientation="vertical">
 
@@ -50,6 +48,8 @@
                 android:id="@+id/edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_perm_identity_white_24dp"
+                android:drawablePadding="5dp"
                 android:textColor="@color/white"
                 android:inputType="textEmailAddress" />
 
@@ -64,6 +64,8 @@
                 android:id="@+id/edit_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_vpn_key_white_24dp"
+                android:drawablePadding="5dp"
                 android:textColor="@color/white"
                 android:inputType="textPassword"/>
 
@@ -71,6 +73,7 @@
 
         <CheckBox
             android:id="@+id/checkbox_remember_me"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -79,7 +82,7 @@
 
         <Button
             android:id="@+id/button_login"
-
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -87,22 +90,39 @@
             android:text="@string/sign_in_login_button"
             android:textColor="@color/white"/>
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/text_registration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_above="@+id/button_registration"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="8dp"
+                android:text="@string/no_account_yet_create_one"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/button_registration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/border_without_background"
+
                 android:text="@string/sign_in_registration_link"
                 android:textColor="@color/white" />
 
-        </FrameLayout>
+        </RelativeLayout>
+
+
 
     </LinearLayout>
+
+
 
 	<ProgressBar
 		android:id="@+id/progress"

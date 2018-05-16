@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1075526080794",
+    "firebase_url": "https://nivigps-b06ea.firebaseio.com",
+    "project_id": "nivigps-b06ea",
+    "storage_bucket": "nivigps-b06ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075526080794:android:f9aef040f42cfab1",
+        "android_client_info": {
+          "package_name": "com.nivilive.gps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075526080794-gfklsfbkpppk1vb080a13odmgdjjk8o4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nivilive.gps",
+            "certificate_hash": "0fb0db1dc45c6a304a2c39b9772730a61588663a"
+          }
+        },
+        {
+          "client_id": "1075526080794-4qa64iepds10l3mandl88srqp96u33jb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD83IZRVzdsoxe_kY4r0za6pcX6_arewbU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075526080794-4qa64iepds10l3mandl88srqp96u33jb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

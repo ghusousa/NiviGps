@@ -10,16 +10,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
+import com.jakewharton.rxbinding2.widget.RxCompoundButton;
+import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.nivilive.gps.R;
 import com.nivilive.gps.data.api.RestApi;
 import com.nivilive.gps.rx.SchedulersFactory;
 import com.nivilive.gps.ui.base.BaseFragment;
-import com.jakewharton.rxbinding2.widget.RxCompoundButton;
-import com.jakewharton.rxbinding2.widget.RxTextView;
 
 import javax.inject.Inject;
 
@@ -43,7 +42,7 @@ public class SignInFragment extends BaseFragment implements SignInView {
 	private Button loginButton;
 	private ProgressBar progress;
 	private CheckBox rememberMe;
-	private TextView registrationLink;
+	private Button registrationLink;
 
 	public static SignInFragment newInstance() {
 		Bundle args = new Bundle();
@@ -70,7 +69,8 @@ public class SignInFragment extends BaseFragment implements SignInView {
 		passwordField = v.findViewById(R.id.edit_password);
 		progress = v.findViewById(R.id.progress);
 		rememberMe = v.findViewById(R.id.checkbox_remember_me);
-		registrationLink = v.findViewById(R.id.text_registration);
+		registrationLink = v.findViewById(R.id.button_registration);
+//		registrationLink = v.findViewById(R.id.text_registration);
 		initRegistrationLink();
 	}
 
