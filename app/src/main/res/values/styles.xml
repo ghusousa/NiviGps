@@ -1,12 +1,13 @@
 <resources>
 
 	<!-- Base application theme. -->
+	<!--suppress AndroidDomInspection -->
 	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<!-- Customize your theme here. -->
 		<item name="colorPrimary">@color/primary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/accent</item>
-		<item name="android:buttonStyle">@style/CustomButton</item>
+		<!--<item name="android:buttonStyle">@style/CustomButton</item>-->
 
 		<item name="colorControlNormal">@color/iron</item>
 		<item name="colorControlActivated">@color/white</item>
@@ -14,13 +15,13 @@
 		<item name="android:textColorHint">@color/iron</item>
 	</style>
 
-	<style name="CustomButton" parent="Base.Widget.AppCompat.Button">
+	<!--<style name="CustomButton" parent="@Base.Widget.AppCompat.Button">
 		<item name="android:background">@color/primary</item>
-	</style>
+	</style>-->
 
-	<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+	<!--<style name="AppTheme.AppBarLayout" parent="ThemeOverlay.AppCompat.Dark" />
 
-	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 
 
 

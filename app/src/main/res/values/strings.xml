@@ -26,7 +26,8 @@
     <string name="registration_title">Sign Up</string>
     <string name="button_ok">OK</string>
     <string name="registration_sign_up_success">You have successfully registered. Now you can sign in.</string>
-    <string name="sign_in_registration_link">No account yet? Create one</string>
+    <string name="sign_in_registration_link">SIGN UP</string>
+    <string name="no_account_yet_create_one">Not an account yet? Create one</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="main_menu_tracking">Map</string>
