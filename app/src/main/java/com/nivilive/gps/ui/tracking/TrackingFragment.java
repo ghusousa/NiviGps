@@ -8,9 +8,6 @@ import android.view.View;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
-import com.nivilive.gps.R;
-import com.nivilive.gps.rx.SchedulersFactory;
-import com.nivilive.gps.ui.base.BaseFragment;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,6 +17,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.nivilive.gps.R;
+import com.nivilive.gps.rx.SchedulersFactory;
+import com.nivilive.gps.ui.base.BaseFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -68,7 +68,7 @@ public  class TrackingFragment extends BaseFragment
 		this.map = map;
 		map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		map.getUiSettings().setZoomControlsEnabled(true);
-		map.getUiSettings().setMapToolbarEnabled(true);
+		map.getUiSettings().setMapToolbarEnabled(false);
 		map.getUiSettings().setMyLocationButtonEnabled(true);
 		presenter.onMapInitialized();
 	}

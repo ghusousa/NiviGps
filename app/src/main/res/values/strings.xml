@@ -54,5 +54,7 @@
     <string name="main_menu_alerts_setting">Alerts</string>
     <string name="settings">settings</string>
     <string name="check_terms_and_conditions">By signing up I agree to the Terms of Service</string>
+    <string name="default_email">myname@gmail.com</string>
+    <string name="default_name">My Full Name</string>
 
 </resources>

@@ -12,7 +12,7 @@
 			android:title="@string/main_menu_tracking" />
         <item
             android:id="@+id/action_device"
-            android:icon="@drawable/ic_person"
+            android:icon="@drawable/ic_directions_car_black_24dp"
             android:title="@string/main_menu_device" />
 
 		<item
@@ -28,7 +28,7 @@
 
 		<item
 			android:id="@+id/action_notifications"
-			android:icon="@drawable/ic_notifications"
+			android:icon="@drawable/ic_reports_black_24dp"
 			android:title="@string/main_menu_notifications" />
 
 	</group>
@@ -41,7 +41,7 @@
 
 				<item
 					android:id="@+id/action_alerts_settings"
-					android:icon="@drawable/ic_notifications"
+					android:icon="@drawable/ic_settings"
 					android:title="@string/main_menu_alerts_setting" />
 				<item
 					android:id="@+id/action_user_profile"
@@ -57,19 +57,19 @@
 
 		<item
 			android:id="@+id/action_privacy_policy"
-			android:icon="@drawable/ic_arrow_back"
+			android:icon="@drawable/ic_public_black_24dp"
 			android:title="@string/main_menu_privacy_policy" />
 		<item
 			android:id="@+id/action_terms"
-			android:icon="@drawable/ic_arrow_back"
+			android:icon="@drawable/ic_terms_24dp"
 			android:title="@string/main_menu_terms" />
 		<item
 			android:id="@+id/action_feedback"
-			android:icon="@drawable/ic_faq_black_24dp"
+			android:icon="@drawable/ic_feedback_black_24dp"
 			android:title="@string/main_menu_feedback" />
 		<item
 			android:id="@+id/action_contactus"
-			android:icon="@drawable/ic_settings"
+			android:icon="@drawable/ic_contact_black_24dp"
 			android:title="@string/main_menu_contactus" />
 	</group>
 
