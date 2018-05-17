@@ -24,7 +24,7 @@
         <activity
             android:name=".ui.SignInActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@style/AppTheme">
+            android:theme="@style/LoginTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,8 +34,6 @@
         <activity
             android:name=".ui.MainActivity"
             android:configChanges="orientation|keyboardHidden" />
-
-
 
         <service
             android:name=".service.NotificationJobService"
