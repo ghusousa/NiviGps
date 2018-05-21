@@ -4,25 +4,47 @@
 	<!--suppress AndroidDomInspection -->
 	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<!-- Customize your theme here. -->
-		<item name="colorPrimary">@color/primary</item>
+		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-		<item name="colorAccent">@color/accent</item>
+		<item name="colorAccent">@color/colorAccent</item>
 		<!--<item name="android:buttonStyle">@style/CustomButton</item>-->
 
-		<item name="colorControlNormal">@color/iron</item>
-		<item name="colorControlActivated">@color/white</item>
-		<item name="colorControlHighlight">@color/white</item>
-		<item name="android:textColorHint">@color/iron</item>
 	</style>
+
+
+
+
+    <style name="RegistrationTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/iron</item>
+        <item name="colorControlActivated">@color/colorBlack</item>
+        <item name="colorControlHighlight">@color/blue</item>
+        <item name="android:textColorHint">@color/iron</item>
+
+
+    </style>
+
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+    </style>
 
 	<!--<style name="CustomButton" parent="@Base.Widget.AppCompat.Button">
 		<item name="android:background">@color/primary</item>
 	</style>-->
 
-	<!--<style name="AppTheme.AppBarLayout" parent="ThemeOverlay.AppCompat.Dark" />
+	<!--<style name="AppTheme.AppBarLayout" parent="ThemeOverlay.AppCompat.Dark" />-->
 
-	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+	<style name="ThemeOverlay.AppCompat.ActionBar" parent="@style/ThemeOverlay.AppCompat" >
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorControlNormal">@color/iron</item>
+    <item name="colorControlActivated">@color/blue</item>
+    <item name="colorControlHighlight">@color/blue</item>
+    <item name="android:textColorHint">@color/colorAccent</item>
 
+    </style>
 
 
 </resources>

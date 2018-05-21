@@ -59,5 +59,11 @@ public class SignInActivity extends DaggerAppCompatActivity {
 		navigatorHolder.removeNavigator();
 		super.onPause();
 	}
+	//TODO  add code for onbackpress
+	@Override
+	public void onBackPressed(){
+	    finish();
+
+	}
 
 }

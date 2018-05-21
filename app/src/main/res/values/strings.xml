@@ -19,7 +19,7 @@
     <string name="sign_in_remember_me">Remember me</string>
     <string name="notifications_clear_confirm">Are you sure?</string>
     <string name="button_clear">DELETE</string>
-    <string name="profile_hint_name">User Name</string>
+    <string name="profile_hint_name">Name</string>
     <string name="profile_hint_email">Email</string>
     <string name="profile_registration_button">Sign Up</string>
     <string name="profile_hint_password">Password</string>
@@ -53,5 +53,10 @@
     <string name="main_menu_device">Vehicles</string>
     <string name="main_menu_alerts_setting">Alerts</string>
     <string name="settings">settings</string>
+    <string name="check_terms_and_conditions">By signing up I agree to the Terms of Service</string>
+    <string name="default_email">myname@gmail.com</string>
+    <string name="default_name">My Full Name</string>
+    <string name="share_app">Share App</string>
+    <string name="rate_us">Rate Us</string>
 
 </resources>
