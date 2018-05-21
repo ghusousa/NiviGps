@@ -11,7 +11,7 @@
 			android:checked="true"
 			android:title="@string/main_menu_tracking" />
         <item
-            android:id="@+id/action_device"
+            android:id="@+id/action_devices"
             android:icon="@drawable/ic_directions_car_black_24dp"
             android:title="@string/main_menu_device" />
 
@@ -64,13 +64,22 @@
 			android:icon="@drawable/ic_terms_24dp"
 			android:title="@string/main_menu_terms" />
 		<item
+			android:id="@+id/action_contactus"
+			android:icon="@drawable/ic_contact_black_24dp"
+			android:title="@string/main_menu_contactus" />
+
+		<item
 			android:id="@+id/action_feedback"
 			android:icon="@drawable/ic_feedback_black_24dp"
 			android:title="@string/main_menu_feedback" />
 		<item
-			android:id="@+id/action_contactus"
-			android:icon="@drawable/ic_contact_black_24dp"
-			android:title="@string/main_menu_contactus" />
+			android:id="@+id/action_share_app"
+			android:icon="@drawable/ic_share_black_24dp"
+			android:title="@string/share_app"/>
+        <item
+            android:id="@+id/action_rate_us"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="@string/rate_us"/>
 	</group>
 
 		<!--<item-->

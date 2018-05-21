@@ -56,5 +56,7 @@
     <string name="check_terms_and_conditions">By signing up I agree to the Terms of Service</string>
     <string name="default_email">myname@gmail.com</string>
     <string name="default_name">My Full Name</string>
+    <string name="share_app">Share App</string>
+    <string name="rate_us">Rate Us</string>
 
 </resources>

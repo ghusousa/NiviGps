@@ -1,6 +1,8 @@
 package com.nivilive.gps.ui;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,7 +26,8 @@ import ru.terrakok.cicerone.Router;
 
 public class MainActivity extends DaggerAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-	@Inject
+    private static final String APP_PNAME = "com.gmaxgps" ;
+    @Inject
 	NavigatorHolder navigatorHolder;
 	@Inject
 	Router router;
@@ -98,42 +101,89 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 		switch (item.getItemId()) {
+
+			// Map activity
+			// this activity shows map with all live vehicles
 			case R.id.action_tracking:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.TRACKING_FRAGMENT);
 				break;
+
+			// device/vehicle list
+            case R.id.action_devices:
+                break;
+
+			//Driver info Activity
+			// shows drivers list planning to remove
 			case R.id.action_driver:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.DRIVER_FRAGMENT);
 				break;
+
+			//firebase notification
+            case R.id.action_alert:
+                break;
+
+			// Reports Activity
+			// written for traditional notification. required to change/replace/delete
 			case R.id.action_notifications:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.NOTIFICATIONS_FRAGMENT);
 				break;
-			case R.id.action_logout:
-				logout();
-				break;
 
-			/*case R.id.action_privacy_policy:
-				// toolbar.setTitle(item.getTitle());
-				//WebView webView = ()
-				Intent i = new Intent(MainActivity.this,PrivacyPolicy.class);
-				startActivity(i);
-				break;
-			case R.id.action_feedback:
-				Intent intent = new Intent(Intent.ACTION_SEND);
-				intent.setType("text/plain");
-				intent.putExtra(Intent.EXTRA_EMAIL, "info@nivilive.com");
-				intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback - Nivilive");
-				intent.putExtra(Intent.EXTRA_TEXT, "");
-				startActivity(Intent.createChooser(intent, "Send Email"));
-				break;*/
+				//firebase alert settings
+            case R.id.action_alerts_settings:
+                toolbar.setTitle(item.getTitle());
+                break;
+
+            case R.id.action_user_profile:
+                toolbar.setTitle(item.getTitle());
+                break;
+
+			case R.id.action_privacy_policy:
+                toolbar.setTitle(item.getTitle());
+			    policy();
+			    break;
+
+            case R.id.action_terms:
+                toolbar.setTitle(item.getTitle());
+                terms();
+                break;
+
+            case R.id.action_contactus:
+                toolbar.setTitle(item.getTitle());
+                contactUs();
+                break;
+
+            case R.id.action_feedback:
+      //          toolbar.setTitle(item.getTitle());
+                feedback();
+                break;
+
+            case R.id.action_share_app:
+     //           toolbar.setTitle(item.getTitle());
+                shareApp();
+                break;
+
+            case R.id.action_rate_us:
+     //           toolbar.setTitle(item.getTitle());
+                rateUs();
+                break;
+
+            case R.id.action_logout:                    //Logout
+                toolbar.setTitle(item.getTitle());
+                logout();
+                break;
+
+
 		}
 		drawer.closeDrawer(GravityCompat.START);
 		return true;
 	}
 
-	private void logout() {
+
+
+    private void logout() {
 		new AlertDialog.Builder(this)
 				.setMessage(R.string.tracking_dialog_logout_confirm)
 				.setPositiveButton(R.string.button_logout, ((dialog, which) -> finishLogout()))
@@ -148,5 +198,56 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 				.apply();
 		router.replaceScreen(Screens.SIGN_IN_SCREEN);
 	}
+
+	private void policy(){
+       	Intent i = new Intent(MainActivity.this,PolicyActivity.class);
+		startActivity(i);
+    }
+
+    private void terms(){
+	    Intent i = new Intent(MainActivity.this,TermsActivity.class);
+	    startActivity(i);
+    }
+
+    private void contactUs(){
+        Intent i = new Intent(MainActivity.this,ContactUsActivity.class);
+        startActivity(i);
+
+    }
+
+    private void feedback() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_EMAIL, "info@nivilive.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback - Nivi GPS");
+        intent.putExtra(Intent.EXTRA_TEXT, "Nice App! Yor are doing good.");
+        startActivity(Intent.createChooser(intent, "Send Feddback"));
+    }
+
+    private void rateUs(){
+
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));
+        } finally {
+
+        }
+
+    }
+
+    private void shareApp(){
+
+        try {
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_SUBJECT,"Nivi GPS");
+            String sAux= "\nLet me recommend you this application\n\n";
+            sAux = sAux + "https://play.google.com/store/apps/details?id=com.gmaxgps \n\n";
+            i.putExtra(Intent.EXTRA_TEXT, sAux);
+            startActivity(Intent.createChooser(i,"choose one"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
