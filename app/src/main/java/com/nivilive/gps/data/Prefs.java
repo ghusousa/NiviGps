@@ -9,5 +9,5 @@ public class Prefs {
     public static final String PREF_USER_ID = "user_id";
     public static final String PREF_USER_NAME = "user_name";
     public static final String PREF_USER_EMAIL = "user_email";
-    public static final String PREF_KEY_FIREBASE_TOKEN = "refresh_token";
+    public static final String PREF_KEY_FIREBASE_TOKEN = "firebase_token";
 }

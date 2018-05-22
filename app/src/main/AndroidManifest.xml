@@ -55,7 +55,7 @@
 
         <activity android:name=".ui.PolicyActivity" />
         <activity android:name=".ui.TermsActivity" />
-        <activity android:name=".ui.ContactUsActivity"></activity>
+        <activity android:name=".ui.ContactUsActivity"/>
     </application>
 
 </manifest>
