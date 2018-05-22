@@ -2,11 +2,13 @@ package com.nivilive.gps.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -101,81 +103,57 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 		switch (item.getItemId()) {
-
-			// Map activity
-			// this activity shows map with all live vehicles
 			case R.id.action_tracking:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.TRACKING_FRAGMENT);
 				break;
-
-			// device/vehicle list
             case R.id.action_devices:
+                toolbar.setTitle(item.getTitle());
+                commingSoon();
                 break;
-
-			//Driver info Activity
-			// shows drivers list planning to remove
 			case R.id.action_driver:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.DRIVER_FRAGMENT);
 				break;
-
-			//firebase notification
             case R.id.action_alert:
+                toolbar.setTitle(item.getTitle());
+                commingSoon();
                 break;
-
-			// Reports Activity
-			// written for traditional notification. required to change/replace/delete
 			case R.id.action_notifications:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.NOTIFICATIONS_FRAGMENT);
 				break;
-
-				//firebase alert settings
             case R.id.action_alerts_settings:
                 toolbar.setTitle(item.getTitle());
                 break;
-
             case R.id.action_user_profile:
                 toolbar.setTitle(item.getTitle());
                 break;
-
 			case R.id.action_privacy_policy:
                 toolbar.setTitle(item.getTitle());
 			    policy();
 			    break;
-
             case R.id.action_terms:
                 toolbar.setTitle(item.getTitle());
                 terms();
                 break;
-
             case R.id.action_contactus:
                 toolbar.setTitle(item.getTitle());
                 contactUs();
                 break;
-
             case R.id.action_feedback:
-      //          toolbar.setTitle(item.getTitle());
                 feedback();
                 break;
-
             case R.id.action_share_app:
-     //           toolbar.setTitle(item.getTitle());
                 shareApp();
                 break;
-
             case R.id.action_rate_us:
-     //           toolbar.setTitle(item.getTitle());
                 rateUs();
                 break;
-
-            case R.id.action_logout:                    //Logout
+            case R.id.action_logout:
                 toolbar.setTitle(item.getTitle());
                 logout();
                 break;
-
-
 		}
 		drawer.closeDrawer(GravityCompat.START);
 		return true;
@@ -226,11 +204,14 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 
     private void rateUs(){
 
+
         try {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));
-        } finally {
-
+        } catch (Exception e) {
+            e.printStackTrace();
+            somethingWentWrong();
         }
+
 
     }
 
@@ -247,6 +228,20 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+    private void commingSoon(){
+        Snackbar.make(findViewById(android.R.id.content), "We are coming Soon", Snackbar.LENGTH_LONG)
+                //       .setAction("Undo", mOnClickListener)
+                .setActionTextColor(Color.RED)
+                .show();
+    }
+
+    private void somethingWentWrong(){
+        Snackbar.make(findViewById(android.R.id.content), "Looks Something went Wrong", Snackbar.LENGTH_LONG)
+                //       .setAction("Undo", mOnClickListener)
+                .setActionTextColor(Color.RED)
+                .show();
 
     }
 

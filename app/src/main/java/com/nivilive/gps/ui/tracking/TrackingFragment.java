@@ -81,7 +81,8 @@ public  class TrackingFragment extends BaseFragment
 				.position(new LatLng(position.getLatitude(), position.getLongitude()))
 				.title(position.getName())
 				.snippet(positionInfo)
-				.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus))
+		//		.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus))
+				.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_car))
 		);
 
 	}
