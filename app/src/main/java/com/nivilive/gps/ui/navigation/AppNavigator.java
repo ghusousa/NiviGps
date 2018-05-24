@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 
 import com.nivilive.gps.R;
 import com.nivilive.gps.ui.MainActivity;
+import com.nivilive.gps.ui.PolicyActivity;
 import com.nivilive.gps.ui.Screens;
 import com.nivilive.gps.ui.SignInActivity;
 import com.nivilive.gps.ui.driver.DriverFragment;
@@ -36,6 +37,8 @@ public class AppNavigator extends SupportAppNavigator {
 				return new Intent(activity, MainActivity.class);
 			case Screens.SIGN_IN_SCREEN:
 				return new Intent(activity, SignInActivity.class);
+            case Screens.POLICY_SCREEN:
+                return new Intent(activity, PolicyActivity.class);
 		}
 		return null;
 	}

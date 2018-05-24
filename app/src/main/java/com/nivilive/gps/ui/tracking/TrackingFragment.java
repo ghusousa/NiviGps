@@ -13,6 +13,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -77,19 +78,53 @@ public  class TrackingFragment extends BaseFragment
 
 	@Override
 	public void displayPosition(@NotNull PositionViewItem position, @NonNull String positionInfo) {
-		map.addMarker(new MarkerOptions()
-				.position(new LatLng(position.getLatitude(), position.getLongitude()))
-				.title(position.getName())
-				.snippet(positionInfo)
-		//		.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus))
-				.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_car))
-		);
 
-	}
+        BitmapDescriptor finalCar;
+        BitmapDescriptor defaultCar = BitmapDescriptorFactory.fromResource(R.mipmap.ic_car_grey);
+        BitmapDescriptor offlineCar = BitmapDescriptorFactory.fromResource(R.mipmap.ic_car_grey);
+        BitmapDescriptor unknownCar = BitmapDescriptorFactory.fromResource(R.mipmap.ic_car_white);
+        BitmapDescriptor inmotionCar = BitmapDescriptorFactory.fromResource(R.mipmap.ic_car_green);
+        BitmapDescriptor nomotionCar = BitmapDescriptorFactory.fromResource(R.mipmap.ic_car_red);
+
+
+        if(position.getStatus().equalsIgnoreCase("offline" )) {
+            finalCar = offlineCar;
+        }
+        else if(position.getStatus().equalsIgnoreCase("unknown")) {
+            finalCar = unknownCar;
+        }
+        else if(position.getMotion()) {
+            finalCar = inmotionCar;
+        }
+        else if(!position.getMotion()){
+            finalCar = nomotionCar;
+        }else {
+            finalCar = defaultCar;
+        }
+
+/*      BitmapDescriptor iconStop = BitmapDescriptorFactory.fromResource(R.drawable.ic_bus);
+        BitmapDescriptor iconRunning = BitmapDescriptorFactory.fromResource(R.mipmap.ic_car);
+        BitmapDescriptor iconOffline = BitmapDescriptorFactory.defaultMarker();
+        BitmapDescriptor iconFinal = position.getMotion() ? iconRunning : iconStop;*/
+
+        BitmapDescriptor iconFinal = finalCar;
+
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(position.getLatitude(), position.getLongitude()))
+                .title(position.getName())
+                .snippet(positionInfo)
+                .rotation((float) position.getCourse())
+         //		.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_bus))
+         //     .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_car))
+                .icon(iconFinal)
+        );
+
+    }
 
 	@Override
 	public void moveCamera(@NonNull LatLngBounds bounds) {
-		CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(bounds.getCenter(), 12.0f/*getResources().getDimensionPixelSize(R.dimen.map_padding)*/);
+	//	CameraUpdate cu = CameraUpdateFactory.newLatLngZoom(bounds.getCenter(), 12.0f/*getResources().getDimensionPixelSize(R.dimen.map_padding)*/);
+	    CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds,300)	;
 		map.animateCamera(cu);
 	}
 

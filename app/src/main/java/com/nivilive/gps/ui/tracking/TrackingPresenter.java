@@ -4,12 +4,12 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
 import com.arellomobile.mvp.InjectViewState;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.nivilive.gps.data.Prefs;
 import com.nivilive.gps.mvp.BasePresenter;
 import com.nivilive.gps.rx.SchedulersFactory;
 import com.nivilive.gps.ui.Screens;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -77,10 +77,15 @@ public class TrackingPresenter extends BasePresenter<TrackingView> {
 	private void displayPositions(List<PositionViewItem> positions) {
 		for (PositionViewItem position : positions) {
 			String snippet = new StringBuilder()
-					.append(engDateFormat.format(position.getTime()))
+                    .append("Last Update: ")
+					.append(engDateFormat.format(position.getTime())).append('\n')
 					.append(", speed: ")
 					.append(decimalFormat.format(convertKnots2Kmph(position.getSpeed())))
-					.append(" kmh")
+					.append(" kmh").append('\n')
+					.append(", Status:")
+					.append(position.getStatus()).append('\n')
+                    .append(", Motion:")
+                    .append(position.getMotion())
 					.toString();
 			getViewState().displayPosition(position, snippet);
 		}

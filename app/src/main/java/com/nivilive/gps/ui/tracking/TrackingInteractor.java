@@ -43,7 +43,9 @@ public class TrackingInteractor {
 							device.getUniqueId(),
 							device.getStatus(),
 							position.getLatitude(),
-							position.getLongitude()
+							position.getLongitude(),
+							position.getCourse(),
+                            position.getAttributes().getMotion()
 					));
 				}
 			}

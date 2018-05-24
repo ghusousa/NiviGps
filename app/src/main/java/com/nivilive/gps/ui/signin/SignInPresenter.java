@@ -110,7 +110,7 @@ public class SignInPresenter extends BasePresenter<SignInView> {
 	public void loginClick() {
 		getViewState().showLoading();
 		final String token = Credentials.basic(email, password);
-		unsubscribeOnDestroy(api.checkLogin(token)
+		unsubscribeOnDestroy(api.addSession(email,password)
 				.subscribeOn(schedulers.io())
 				.observeOn(schedulers.ui())
 				.subscribe(positions -> {

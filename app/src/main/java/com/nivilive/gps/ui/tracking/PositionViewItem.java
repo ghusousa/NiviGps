@@ -16,6 +16,8 @@ public final class PositionViewItem {
 	private final String status;
 	private final double latitude;
 	private final double longitude;
+	private final double course;
+	private final boolean motion;
 
 	@NonNull
 	public final String getName() {
@@ -49,7 +51,7 @@ public final class PositionViewItem {
 		return this.longitude;
 	}
 
-	public PositionViewItem(@NonNull String name, @NonNull Date time, double speed, @NonNull String uniqueId, @NonNull String status, double latitude, double longitude) {
+	public PositionViewItem(@NonNull String name, @NonNull Date time, double speed, @NonNull String uniqueId, @NonNull String status, double latitude, double longitude, double course, boolean motion) {
 		this.name = name;
 		this.time = time;
 		this.speed = speed;
@@ -57,6 +59,16 @@ public final class PositionViewItem {
 		this.status = status;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.course = course;
+		this.motion =motion;
+	}
+
+	public final double getCourse(){
+		return this.course;
+	}
+
+	public final boolean getMotion(){
+		return this.motion;
 	}
 
 }
