@@ -87,7 +87,7 @@ public class RegistrationPresenter extends BasePresenter<RegistrationView> {
 
 	public void onRegistrationClick() {
 		getViewState().showLoading();
-		RegisteredUser user = new RegisteredUser(name, email, password);
+		RegisteredUser user = new RegisteredUser(name, email, password );
 		unsubscribeOnDestroy(api.registerUser(user)
 				.subscribeOn(schedulers.io())
 				.observeOn(schedulers.ui())

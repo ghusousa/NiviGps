@@ -11,4 +11,8 @@ public class Screens {
 	public static final String DRIVER_FRAGMENT = "driver_fragment";
 	public static final String REGISTRATION_FRAGMENT = "registration_fragment";
 
+	public static final String CONTACT_US_SCREEN = "contact_us_screen";
+	public static final String POLICY_SCREEN = "policy_screen";
+	public static final String TERMS_SCREEN = "terms_screen";
+
 }

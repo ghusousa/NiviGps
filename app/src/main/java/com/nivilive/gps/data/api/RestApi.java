@@ -12,6 +12,8 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -21,8 +23,12 @@ import retrofit2.http.Query;
 
 public interface RestApi {
 
-	@GET("positions")
-	Observable<List<Position>> checkLogin(@Header("Authorization") String token);
+//	@GET("positions")
+//	Observable<List<Position>> checkLogin(@Header("Authorization") String token);
+
+    @FormUrlEncoded
+    @POST("session")
+    Observable<User> addSession(@Field("email") String email, @Field("password") String password);
 
 	@GET("devices")
 	Observable<List<Device>> getDevices(@Header("Authorization") String token);

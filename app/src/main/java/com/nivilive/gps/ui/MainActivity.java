@@ -131,6 +131,7 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
                 break;
 			case R.id.action_privacy_policy:
                 toolbar.setTitle(item.getTitle());
+             // router.replaceScreen(Screens.POLICY_SCREEN);
 			    policy();
 			    break;
             case R.id.action_terms:
