@@ -16,27 +16,12 @@
                             <entry key="launcherLegacy">
                               <value>
                                 <PersistentState>
-                                  <option name="children">
-                                    <map>
-                                      <entry key="image">
-                                        <value>
-                                          <PersistentState>
-                                            <option name="values">
-                                              <map>
-                                                <entry key="trimmed" value="true" />
-                                              </map>
-                                            </option>
-                                          </PersistentState>
-                                        </value>
-                                      </entry>
-                                    </map>
-                                  </option>
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\ADMIN\OneDrive\Company\5-Development\1-Nivi GPS\4-Android App\ic_car.png" />
-                                      <entry key="outputName" value="ic_car" />
+                                      <entry key="imageAsset" value="F:\icons\car_grey.jpg" />
+                                      <entry key="outputName" value="ic_car_white" />
                                     </map>
                                   </option>
                                 </PersistentState>
