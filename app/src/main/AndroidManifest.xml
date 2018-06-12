@@ -56,6 +56,10 @@
         <activity android:name=".ui.PolicyActivity" />
         <activity android:name=".ui.TermsActivity" />
         <activity android:name=".ui.ContactUsActivity"/>
+        <activity
+            android:name=".ui.Notifications"
+            android:label="Alerts"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

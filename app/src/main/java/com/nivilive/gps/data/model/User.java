@@ -3,6 +3,7 @@ package com.nivilive.gps.data.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 
 public class User {
 
@@ -21,7 +22,7 @@ public class User {
 	@SerializedName("phone")
     private String phone;
 
-	@SerializedName("readOnly")
+    @SerializedName("readonly")
     private  boolean readOnly;
 
 	@SerializedName("admin")
@@ -69,8 +70,8 @@ public class User {
     @SerializedName("poiLayer")
     private String poiLayer;
 
-	@SerializedName("attributes")
-	private User.Attributes attributes;
+    @SerializedName("attributes")
+    private LinkedHashMap<String, String> attributes;
 
     public final int getId() {
         return this.id;
@@ -100,18 +101,33 @@ public class User {
         return admin;
     }
 
-	public User.Attributes getAttributes(){
-		return this.attributes;
-	}
+    public final LinkedHashMap<String, String> getAttributes() {
+        return this.attributes;
+    }
 
+    public void setAttributes(LinkedHashMap<String, String> attributes) {
+        this.attributes = attributes;
+    }
 	public static class Attributes{
 
 		@SerializedName("speedUnit")
 		private String speedUnit;
 
+        @SerializedName("fcm.token")
+        private String fcmToken;
+
 		public String getSpeedUnit() {
 			return this.speedUnit;
 		}
+
+        public String getFcmToken() {
+            return this.fcmToken;
+        }
+
+        public void setFcmToken(String fcmToken) {
+            this.fcmToken = fcmToken;
+        }
+
 	}
 
 }
