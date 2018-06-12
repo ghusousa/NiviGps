@@ -2,14 +2,17 @@ package com.nivilive.gps.ui.signin;
 
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.nivilive.gps.data.Prefs;
 import com.nivilive.gps.data.api.RestApi;
+import com.nivilive.gps.data.model.User;
 import com.nivilive.gps.mvp.BasePresenter;
 import com.nivilive.gps.rx.SchedulersFactory;
 import com.nivilive.gps.ui.Screens;
 
+import java.util.LinkedHashMap;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -115,7 +118,36 @@ public class SignInPresenter extends BasePresenter<SignInView> {
 				.observeOn(schedulers.ui())
 				.subscribe(positions -> {
 					getViewState().hideLoading();
-					saveTokenInfo(token);
+
+					User user = positions;
+					int userId = user.getId();
+					String fcmToken = prefs.getString(Prefs.PREF_KEY_FIREBASE_TOKEN, "");
+					LinkedHashMap hashMap = user.getAttributes();
+					hashMap.put("fcm.token", fcmToken);
+					user.setAttributes(hashMap);
+					updateFcmToken(userId, user);
+
+				}, throwable -> {
+					getViewState().hideLoading();
+					getViewState().displayError("Incorrect email/password");
+				})
+		);
+	}
+
+	public void updateFcmToken(int userId, User user) {
+		getViewState().showLoading();
+		final String token = Credentials.basic(email, password);
+		unsubscribeOnDestroy(api.updateUser(token, userId, user)
+				.subscribeOn(schedulers.io())
+				.observeOn(schedulers.ui())
+				.subscribe(positions -> {
+					getViewState().hideLoading();
+
+					User userUpdated = positions;
+
+					Log.d("fcmTokenOnline", "" + userUpdated.getAttributes());
+
+					saveTokenInfo(token, userId);
 					router.newRootScreen(Screens.MAIN_SCREEN);
 				}, throwable -> {
 					getViewState().hideLoading();
@@ -124,10 +156,11 @@ public class SignInPresenter extends BasePresenter<SignInView> {
 		);
 	}
 
-	private void saveTokenInfo(String token) {
+	private void saveTokenInfo(String token, int userId) {
 		prefs.edit()
 				.putBoolean(Prefs.PREF_KEY_REMEMBER_ME, rememberMe)
 				.putString(Prefs.PREF_KEY_AUTHORIZATION, token)
+				.putInt(Prefs.PREF_USER_ID, userId)
 				.apply();
 	}
 

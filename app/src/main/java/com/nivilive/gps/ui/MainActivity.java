@@ -3,6 +3,7 @@ package com.nivilive.gps.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,10 +15,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Switch;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.nivilive.gps.R;
 import com.nivilive.gps.data.Prefs;
+import com.nivilive.gps.firebase.SharedPrefManager;
 import com.nivilive.gps.ui.navigation.AppNavigator;
 
 import javax.inject.Inject;
@@ -25,6 +33,10 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerAppCompatActivity;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;
+
+import static com.nivilive.gps.data.Prefs.PREF_KEY_NOTIFICATION;
+import static com.nivilive.gps.data.Prefs.PREF_KEY_SOUND;
+import static com.nivilive.gps.data.Prefs.PREF_KEY_VIBRATE;
 
 public class MainActivity extends DaggerAppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -47,6 +59,7 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+        FirebaseMessaging.getInstance().subscribeToTopic("all");
 		initControls();
 		router.newRootScreen(Screens.TRACKING_FRAGMENT);
 		setTitle(getString(R.string.tracking_title));
@@ -117,14 +130,16 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 				break;
             case R.id.action_alert:
                 toolbar.setTitle(item.getTitle());
-                commingSoon();
+                //    commingSoon();
+                Intent i = new Intent(MainActivity.this, Notifications.class);
+                startActivity(i);
                 break;
 			case R.id.action_notifications:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.NOTIFICATIONS_FRAGMENT);
 				break;
             case R.id.action_alerts_settings:
-                toolbar.setTitle(item.getTitle());
+                dialogAlertSettings();
                 break;
             case R.id.action_user_profile:
                 toolbar.setTitle(item.getTitle());
@@ -160,8 +175,46 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 		return true;
 	}
 
+    private void dialogAlertSettings() {
+        LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+        View promptView = layoutInflater.inflate(R.layout.dialog_alert, null);
+        final android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(MainActivity.this);
+        alert.setView(promptView);
+        Switch swNotification = (Switch) promptView.findViewById(R.id.swNotification);
+        Switch swVibrate = (Switch) promptView.findViewById(R.id.swVibrate);
+        Switch swSound = (Switch) promptView.findViewById(R.id.swSound);
 
+        Log.d("PrefSwitch", SharedPrefManager.getBoolPreferences(MainActivity.this, PREF_KEY_NOTIFICATION) + " - " + SharedPrefManager.getBoolPreferences(MainActivity.this, PREF_KEY_VIBRATE) + " - " + SharedPrefManager.getBoolPreferences(MainActivity.this, PREF_KEY_SOUND));
+        swNotification.setChecked(SharedPrefManager.getBoolPreferences(MainActivity.this, PREF_KEY_NOTIFICATION));
+        swVibrate.setChecked(SharedPrefManager.getBoolPreferences(MainActivity.this, PREF_KEY_VIBRATE));
+        swSound.setChecked(SharedPrefManager.getBoolPreferences(MainActivity.this, PREF_KEY_SOUND));
 
+        final Button btn_ok = (Button) promptView.findViewById(R.id.btn_ok);
+        final Button btn_cancel = (Button) promptView.findViewById(R.id.btn_cancel);
+
+        final android.support.v7.app.AlertDialog alert1 = alert.create();
+        alert1.setCanceledOnTouchOutside(false);
+
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alert1.dismiss();
+                Log.d("SwitchStatus", swNotification.isChecked() + " - " + swVibrate.isChecked() + " - " + swSound.isChecked());
+                SharedPrefManager.saveBoolPreferences(MainActivity.this, PREF_KEY_NOTIFICATION, swNotification.isChecked());
+                SharedPrefManager.saveBoolPreferences(MainActivity.this, PREF_KEY_VIBRATE, swVibrate.isChecked());
+                SharedPrefManager.saveBoolPreferences(MainActivity.this, PREF_KEY_SOUND, swSound.isChecked());
+            }
+        });
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alert1.dismiss();
+
+            }
+        });
+        alert1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alert1.show();
+    }
     private void logout() {
 		new AlertDialog.Builder(this)
 				.setMessage(R.string.tracking_dialog_logout_confirm)
@@ -204,8 +257,6 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
     }
 
     private void rateUs(){
-
-
         try {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PNAME)));
         } catch (Exception e) {
