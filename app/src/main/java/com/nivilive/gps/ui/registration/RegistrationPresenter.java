@@ -28,6 +28,7 @@ public class RegistrationPresenter extends BasePresenter<RegistrationView> {
 	private String name = "";
 	private String email = "";
 	private String password = "";
+//	String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 	public RegistrationPresenter(@NonNull SchedulersFactory schedulers, @NonNull RestApi api, @NonNull Router router) {
 		this.schedulers = schedulers;

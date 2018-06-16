@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Nivi GPS</string>
     <string name="sign_in_login_button">Login</string>
-    <string name="sign_in_hint_email">ID/Email ID</string>
+    <string name="sign_in_hint_email">Email ID</string>
     <string name="sign_in_hint_password">Password</string>
     <string name="tracking_title">Map</string>
     <string name="tracking_menu_driver_info">Driver Info</string>
