@@ -10,7 +10,7 @@
 			android:icon="@drawable/ic_map"
 			android:checked="true"
 			android:title="@string/main_menu_tracking" />
-        <item
+       <!-- <item
             android:id="@+id/action_devices"
             android:icon="@drawable/ic_directions_car_black_24dp"
             android:title="@string/main_menu_device" />
@@ -29,10 +29,11 @@
 		<item
 			android:id="@+id/action_notifications"
 			android:icon="@drawable/ic_reports_black_24dp"
-			android:title="@string/main_menu_notifications" />
+			android:title="@string/main_menu_notifications" />-->
 
 	</group>
 
+<!--
 	<group
 		android:id="@+id/menu_settings">
 		<item android:title="@string/settings">
@@ -50,6 +51,7 @@
 			</menu>
 		</item>
 	</group>
+-->
 
 	<group
 		android:id="@+id/menu_last"
@@ -68,18 +70,18 @@
 			android:icon="@drawable/ic_contact_black_24dp"
 			android:title="@string/main_menu_contactus" />
 
-		<item
+		<!--<item
 			android:id="@+id/action_feedback"
 			android:icon="@drawable/ic_feedback_black_24dp"
-			android:title="@string/main_menu_feedback" />
-		<item
+			android:title="@string/main_menu_feedback" />-->
+		<!--<item
 			android:id="@+id/action_share_app"
 			android:icon="@drawable/ic_share_black_24dp"
 			android:title="@string/share_app"/>
         <item
             android:id="@+id/action_rate_us"
             android:icon="@drawable/ic_star_black_24dp"
-            android:title="@string/rate_us"/>
+            android:title="@string/rate_us"/>-->
 	</group>
 
 		<!--<item-->

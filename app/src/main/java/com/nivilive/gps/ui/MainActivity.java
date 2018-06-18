@@ -120,30 +120,30 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.TRACKING_FRAGMENT);
 				break;
-            case R.id.action_devices:
+            /*case R.id.action_devices:
                 toolbar.setTitle(item.getTitle());
                 commingSoon();
-                break;
+                break;*/
 			case R.id.action_driver:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.DRIVER_FRAGMENT);
 				break;
-            case R.id.action_alert:
+            /*case R.id.action_alert:
                 toolbar.setTitle(item.getTitle());
                 //    commingSoon();
                 Intent i = new Intent(MainActivity.this, Notifications.class);
                 startActivity(i);
-                break;
+                break;*/
 			case R.id.action_notifications:
 				toolbar.setTitle(item.getTitle());
 				router.replaceScreen(Screens.NOTIFICATIONS_FRAGMENT);
 				break;
-            case R.id.action_alerts_settings:
+/*            case R.id.action_alerts_settings:
                 dialogAlertSettings();
                 break;
             case R.id.action_user_profile:
                 toolbar.setTitle(item.getTitle());
-                break;
+                break;*/
 			case R.id.action_privacy_policy:
                 toolbar.setTitle(item.getTitle());
              // router.replaceScreen(Screens.POLICY_SCREEN);
@@ -157,7 +157,7 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
                 toolbar.setTitle(item.getTitle());
                 contactUs();
                 break;
-            case R.id.action_feedback:
+/*            case R.id.action_feedback:
                 feedback();
                 break;
             case R.id.action_share_app:
@@ -165,7 +165,7 @@ public class MainActivity extends DaggerAppCompatActivity implements NavigationV
                 break;
             case R.id.action_rate_us:
                 rateUs();
-                break;
+                break;*/
             case R.id.action_logout:
                 toolbar.setTitle(item.getTitle());
                 logout();

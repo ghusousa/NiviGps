@@ -35,16 +35,13 @@ public class HttpClientModule {
 	@Provides
 	@Singleton
 	public Interceptor provideHeaderInterceptor() {
-		return new Interceptor() {
-			@Override
-			public Response intercept(Chain chain) throws IOException {
-				Request request = chain.request()
-						.newBuilder()
-						.addHeader("Accept", "application/json")
-						.build();
-				return chain.proceed(request);
-			}
-		};
+		return chain -> {
+            Request request = chain.request()
+                    .newBuilder()
+                    .addHeader("Accept", "application/json")
+                    .build();
+            return chain.proceed(request);
+        };
 	}
 
 	@Provides
